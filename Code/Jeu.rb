@@ -21,20 +21,28 @@ class Jeu
 	end
 
 	def etatSuivant(numeroTuile)
-		@tab[numeroTuile].changerEnSuivant
-		#valeurs possibles -1,0,1
+		if(@tab[numeroTuile].respond_to? :changerEnSuivant) then
+			@tab[numeroTuile].changerEnSuivant
+			#valeurs possibles -1,0,1
+		end
 	end
 
 	def etatBleu(numeroTuile)
-		@tab[numeroTuile].changerEnBleu
+		if(@tab[numeroTuile].respond_to? :changerEnBleu) then
+			@tab[numeroTuile].changerEnBleu
+		end	
 	end
 
 	def etatRouge(numeroTuile)
-		@tab[numeroTuile].changerEnRouge
+		if(@tab[numeroTuile].respond_to? :changerEnRouge) then
+			@tab[numeroTuile].changerEnRouge
+		end
 	end
 
 	def etatVide(numeroTuile)
-		@tab[numeroTuile].changerEnVide
+		if(@tab[numeroTuile].respond_to? :changerEnVide) then
+			@tab[numeroTuile].changerEnVide
+		end
 	end
 
 	def aideUneTuille
@@ -44,9 +52,10 @@ class Jeu
 			end
 		end
 	end
+
 	def affichageJeu
 		0.upto (@tab.size-1) do |x|
-			print "#{@tab[x]} => #{tab[x].couleur}"
+			print @tab[x].to_s
 		end
 	end
 end
