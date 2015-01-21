@@ -5,6 +5,10 @@ class Tuile
 	def initialize(couleur)
 		@couleur=couleur
 	end
+
+	def to_s
+		return "#{self.couleur}"
+	end
 end # Marqueur de fin de classe
 
 class TuileJouable < Tuile
